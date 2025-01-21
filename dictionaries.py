@@ -29,4 +29,4 @@ words_hard = {
 }
 
 
-dictionary = [words_easy, words_medium, words_hard] 
+dictionary = {'легкий': words_easy, 'средний': words_medium, 'тяжелый': words_hard}
