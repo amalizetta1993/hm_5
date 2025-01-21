@@ -24,7 +24,7 @@ def get_answers(dict):
             users_answers[key] = False
     return users_answers
 
-#функция вывода правильных и неправильных слов   
+#функция вывода правильных и неправильных слов и ранга 
 def print_answers_and_rang(data):
     levels = {
                 0: "Нулевой",
