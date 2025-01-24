@@ -1,18 +1,15 @@
-import dictionaries
+import questions
 
 #функция выбора уровня сложности
-def get_difficulty_level():
-    difficulty_levels = ['легкий', 'средний', 'тяжелый']
-    level = input('Выберите уровень сложности: легкий, средний, тяжелый: ').replace(' ', '').lower()
-    print()
-    if level not in difficulty_levels:
-        level = difficulty_levels[0]
-        
-    print(f'Выбран {level} уровень', end="\n\n")
-    return level
+def get_user_level(lev):
+    difficulty_levels = ['легкий', 'средний', 'тяжелый'] 
+    if lev not in difficulty_levels:
+        lev = difficulty_levels[0]        
+    print(f'Выбран {lev} уровень', end="\n\n")
+    return dictionaries.dictionary[lev]
 
 #функция получения ответов от пользователя
-def get_answers(dict):
+def base_program(dict):
     users_answers = {}
     for key, value in dict.items():
         answer = input(f'{key}, {len(value)} букв(а), начинается на {value[0]}...')
@@ -25,7 +22,7 @@ def get_answers(dict):
     return users_answers
 
 #функция вывода правильных и неправильных слов и ранга 
-def print_answers_and_rang(data):
+def get_result(data):
     levels = {
                 0: "Нулевой",
                 1: "Так себе",
@@ -49,9 +46,15 @@ def print_answers_and_rang(data):
 print('''
       Привет! Это приложение для проверки знаний английского языка.
                 Переведи слова с английского на русский
+
 ''')
 
-words = dictionaries.dictionary[get_difficulty_level()] #выбрали уровень сложности и получили нужный словарь
 
-answers = get_answers(words) #получили ответы пользователя
-print_answers_and_rang(answers) #вывод правильных и неправильных ответов и ранга
+name = input('Как вас зовут?')
+
+level = input('Выберите уровень сложности: легкий, средний, тяжелый: ').replace(' ', '').lower()
+words = get_user_level(level) #получили нужный словарь
+answers = base_program(words) #получили ответы пользователя
+get_result(answers) #вывод правильных и неправильных ответов и ранга
+
+dictionary = {'легкий': words_easy, 'средний': words_medium, 'тяжелый': words_hard}
