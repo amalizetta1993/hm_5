@@ -1,7 +1,7 @@
 #!usr/bin/env python
 '''функция выбора уровня сложности'''
 
-import json
+import json #не работает без импорта json
 def get_user_level(lev):
     dictionary = {'легкий': 0, 'средний': 1, 'тяжелый': 2}
     with open("questions.json", "r", encoding = 'utf-8') as fh:

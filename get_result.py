@@ -1,6 +1,6 @@
 #!usr/bin/env python
 '''функция вывода правильных и неправильных слов и ранга'''
-import json
+import json #не работает без импорта json
 def get_result(data,user):
     right_words = []
     wrong_words = []
